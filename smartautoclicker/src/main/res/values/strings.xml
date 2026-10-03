@@ -19,7 +19,8 @@
 
     <string name="app_name" translatable="false">Duck VIP</string>
 
-    <string name="activity_scenario_title">Scenarios</string>
+    <string name="activity_scenario_title">DatBaSan</string>
+    
     <string name="accessibility_service_description">This application needs this service to inject the clicks you have
         created into the other applications once the conditions have been detected.\n\nNo data will be collected from
         this application. Feel free to visit our github, the code is open source !</string>
