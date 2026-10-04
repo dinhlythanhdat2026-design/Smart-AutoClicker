@@ -5,25 +5,25 @@
     <item
         android:id="@+id/action_folder"
         android:icon="@drawable/ic_folder"
-        android:title="@string/menu_title_folder"
+        android:title="Thư mục"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_search"
         android:icon="@drawable/ic_search"
-        android:title="@string/menu_title_search"
+        android:title="Tìm kiếm"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_tutorial"
         android:icon="@drawable/ic_school"
-        android:title="@string/menu_title_tutorial"
+        android:title="Hướng dẫn"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_settings"
         android:icon="@drawable/ic_settings"
-        android:title="@string/menu_title_settings"
+        android:title="Cài đặt"
         app:showAsAction="ifRoom" />
 
 </menu>
