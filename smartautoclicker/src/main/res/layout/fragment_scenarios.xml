@@ -38,6 +38,7 @@
             android:background="#FFC107"
             app:titleTextColor="#FFFFFF"
             app:iconTint="#FFFFFF"
+            app:itemIconTint="#FFFFFF"
             app:layout_scrollFlags="scroll|enterAlways|snap"
             app:layout_scrollEffect="compress"
             app:title="DatBaSan"
