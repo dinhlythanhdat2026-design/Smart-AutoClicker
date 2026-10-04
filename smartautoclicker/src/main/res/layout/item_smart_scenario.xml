@@ -25,7 +25,10 @@
     android:layout_marginStart="@dimen/margin_horizontal_default"
     android:layout_marginEnd="@dimen/margin_horizontal_default"
     android:layout_marginTop="@dimen/margin_vertical_default"
-    android:layout_marginBottom="@dimen/margin_vertical_small">
+    android:layout_marginBottom="@dimen/margin_vertical_small"
+    app:cardBackgroundColor="#FFE082"
+    app:cardElevation="4dp"
+    app:strokeWidth="0dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -47,6 +50,8 @@
             app:layout_constraintBottom_toBottomOf="@id/button_expand_collapse"
             android:drawablePadding="@dimen/margin_horizontal_small"
             android:drawableStart="@drawable/ic_smart"
+            app:drawableTint="#FFFFFF"
+            android:textColor="#FFFFFF"
             android:maxLines="2"
             tools:text="My cool scenario " />
 
@@ -56,6 +61,7 @@
             android:layout_width="1dp"
             android:layout_height="0dp"
             android:layout_marginEnd="@dimen/margin_horizontal_small"
+            app:dividerColor="#80FFFFFF"
             app:layout_constraintStart_toEndOf="@id/scenario_name"
             app:layout_constraintEnd_toStartOf="@id/button_expand_collapse"
             app:layout_constraintTop_toTopOf="@id/button_expand_collapse"
@@ -68,6 +74,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:icon="@drawable/ic_chevron_down"
+            app:iconTint="#FFFFFF"
             tools:visibility="visible"/>
 
         <com.google.android.material.radiobutton.MaterialRadioButton
@@ -101,8 +108,10 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:maxLines="1"
+                android:textColor="#FFFFFF"
                 android:drawablePadding="@dimen/margin_horizontal_mini"
                 app:drawableLeftCompat="@drawable/ic_most_used"
+                app:drawableTint="#FFFFFF"
                 tools:text="4444" />
 
             <com.google.android.material.textview.MaterialTextView
@@ -114,8 +123,10 @@
                 app:layout_constraintStart_toEndOf="@id/execution_count"
                 app:layout_constraintTop_toTopOf="@id/execution_count"
                 app:layout_constraintBottom_toBottomOf="@id/execution_count"
+                android:textColor="#FFFFFF"
                 android:drawablePadding="@dimen/margin_horizontal_mini"
                 app:drawableLeftCompat="@drawable/ic_sort_recent"
+                app:drawableTint="#FFFFFF"
                 tools:text="3 days ago" />
 
             <com.google.android.material.textview.MaterialTextView
@@ -127,8 +138,10 @@
                 android:layout_marginBottom="@dimen/margin_vertical_default"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/execution_count"
+                android:textColor="#FFFFFF"
                 android:drawablePadding="@dimen/margin_horizontal_mini"
                 app:drawableLeftCompat="@drawable/ic_detection_quality"
+                app:drawableTint="#FFFFFF"
                 tools:text="1865" />
 
             <com.google.android.material.textview.MaterialTextView
@@ -140,8 +153,10 @@
                 app:layout_constraintStart_toEndOf="@id/detection_quality"
                 app:layout_constraintTop_toTopOf="@id/detection_quality"
                 app:layout_constraintBottom_toBottomOf="@id/detection_quality"
+                android:textColor="#FFFFFF"
                 android:drawablePadding="@dimen/margin_horizontal_mini"
                 app:drawableLeftCompat="@drawable/ic_trigger_event"
+                app:drawableTint="#FFFFFF"
                 tools:text="3" />
 
             <androidx.recyclerview.widget.RecyclerView
@@ -171,6 +186,7 @@
                 app:layout_constraintTop_toBottomOf="@id/detection_quality"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:textAlignment="center"
+                android:textColor="#FFFFFF"
                 android:text="@string/message_empty_image_events_scenario_list"
                 tools:visibility="gone"/>
 
@@ -185,6 +201,8 @@
                 app:layout_constraintVertical_chainStyle="packed"
                 app:elevation="@dimen/elevation_level_3"
                 app:icon="@drawable/ic_copy"
+                app:iconTint="#FFFFFF"
+                app:backgroundTint="#FFB800"
                 tools:visibility="visible"/>
 
             <com.google.android.material.button.MaterialButton
@@ -196,6 +214,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:elevation="@dimen/elevation_level_3"
                 app:icon="@drawable/ic_delete"
+                app:iconTint="#FFFFFF"
+                app:backgroundTint="#FFB800"
                 tools:visibility="visible"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
