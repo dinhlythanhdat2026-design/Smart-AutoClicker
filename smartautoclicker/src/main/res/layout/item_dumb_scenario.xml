@@ -25,7 +25,10 @@
     android:layout_marginStart="@dimen/margin_horizontal_default"
     android:layout_marginEnd="@dimen/margin_horizontal_default"
     android:layout_marginTop="@dimen/margin_vertical_default"
-    android:layout_marginBottom="@dimen/margin_vertical_small">
+    android:layout_marginBottom="@dimen/margin_vertical_small"
+    app:cardBackgroundColor="#FFE082"
+    app:cardElevation="4dp"
+    app:strokeWidth="0dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -47,6 +50,8 @@
             app:layout_constraintBottom_toBottomOf="@id/button_expand_collapse"
             android:drawablePadding="@dimen/margin_horizontal_small"
             android:drawableStart="@drawable/ic_dumb"
+            app:drawableTint="#FFFFFF"
+            android:textColor="#FFFFFF"
             android:maxLines="2"
             tools:text="My cool scenario " />
 
@@ -56,6 +61,7 @@
             android:layout_width="1dp"
             android:layout_height="0dp"
             android:layout_marginEnd="@dimen/margin_horizontal_small"
+            app:dividerColor="#80FFFFFF"
             app:layout_constraintStart_toEndOf="@id/scenario_name"
             app:layout_constraintEnd_toStartOf="@id/button_expand_collapse"
             app:layout_constraintTop_toTopOf="@id/button_expand_collapse"
@@ -68,6 +74,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:icon="@drawable/ic_chevron_down"
+            app:iconTint="#FFFFFF"
             tools:visibility="visible"/>
 
         <com.google.android.material.radiobutton.MaterialRadioButton
@@ -80,151 +87,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:visibility="gone"/>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/scenario_details"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/button_expand_collapse"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:visibility="visible">
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/execution_count"
-                style="@style/AppTheme.TextAppearance.BodyLarge"
-                android:layout_width="72dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_vertical_default"
-                android:layout_marginBottom="@dimen/margin_vertical_default"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:maxLines="1"
-                android:drawablePadding="@dimen/margin_horizontal_mini"
-                app:drawableLeftCompat="@drawable/ic_most_used"
-                tools:text="4444" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/last_execution"
-                style="@style/AppTheme.TextAppearance.BodyLarge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_horizontal_small"
-                app:layout_constraintStart_toEndOf="@id/execution_count"
-                app:layout_constraintTop_toTopOf="@id/execution_count"
-                app:layout_constraintBottom_toBottomOf="@id/execution_count"
-                android:drawablePadding="@dimen/margin_horizontal_mini"
-                app:drawableLeftCompat="@drawable/ic_sort_recent"
-                tools:text="3 days ago" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/dumb_actions_layout"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/margin_vertical_small"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/button_copy"
-                app:layout_constraintTop_toBottomOf="@id/execution_count"
-                app:layout_constraintBottom_toTopOf="@id/layout_action_description">
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/click_count"
-                    style="@style/AppTheme.TextAppearance.BodyLarge"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/swipe_count"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:drawablePadding="@dimen/margin_horizontal_mini"
-                    app:drawableLeftCompat="@drawable/ic_click_small"
-                    tools:text="3" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/swipe_count"
-                    style="@style/AppTheme.TextAppearance.BodyLarge"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_horizontal_default"
-                    app:layout_constraintStart_toEndOf="@id/click_count"
-                    app:layout_constraintEnd_toStartOf="@id/pause_count"
-                    app:layout_constraintTop_toTopOf="@id/click_count"
-                    app:layout_constraintBottom_toBottomOf="@id/click_count"
-                    android:drawablePadding="@dimen/margin_horizontal_mini"
-                    app:drawableLeftCompat="@drawable/ic_swipe_small"
-                    tools:text="2" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/pause_count"
-                    style="@style/AppTheme.TextAppearance.BodyLarge"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_horizontal_default"
-                    app:layout_constraintStart_toEndOf="@id/swipe_count"
-                    app:layout_constraintTop_toTopOf="@id/click_count"
-                    app:layout_constraintBottom_toBottomOf="@id/click_count"
-                    android:drawablePadding="@dimen/margin_horizontal_mini"
-                    app:drawableLeftCompat="@drawable/ic_wait_small"
-                    tools:text="1" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <LinearLayout
-                android:id="@+id/layout_action_description"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/button_copy"
-                app:layout_constraintTop_toBottomOf="@id/dumb_actions_layout"
-                app:layout_constraintBottom_toBottomOf="parent">
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/repeat_limit"
-                    style="@style/AppTheme.TextAppearance.BodyLarge"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    tools:text="Repeat 10 times" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/duration_limit"
-                    style="@style/AppTheme.TextAppearance.BodyLarge"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/button_copy"
-                    app:layout_constraintTop_toBottomOf="@id/repeat_limit"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    tools:text="Stop after 10min" />
-
-            </LinearLayout>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_copy"
-                style="@style/AppTheme.Widget.IconButtonFilledTonal"
-                android:layout_marginTop="@dimen/margin_vertical_large"
-                android:layout_marginBottom="@dimen/margin_vertical_default"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/button_delete"
-                app:layout_constraintVertical_chainStyle="packed"
-                app:elevation="@dimen/elevation_level_3"
-                app:icon="@drawable/ic_copy"
-                tools:visibility="visible"/>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_delete"
-                style="@style/AppTheme.Widget.IconButtonFilledTonal"
-                android:layout_marginBottom="@dimen/margin_vertical_default"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/button_copy"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:elevation="@dimen/elevation_level_3"
-                app:icon="@drawable/ic_delete"
-                tools:visibility="visible"/>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
