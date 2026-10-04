@@ -28,16 +28,19 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         style="@style/AppTheme.Widget.AppBarLayout"
-        android:background="#80FFF5D6"
+        android:background="#FFC107"
         app:liftOnScrollTargetViewId="@id/list"
-        app:liftOnScroll="true">
+        app:liftOnScroll="false">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/topAppBar"
             style="@style/AppTheme.Widget.Toolbar"
+            android:background="#FFC107"
+            app:titleTextColor="#FFFFFF"
+            app:iconTint="#FFFFFF"
             app:layout_scrollFlags="scroll|enterAlways|snap"
             app:layout_scrollEffect="compress"
-            app:title="@string/activity_scenario_title"
+            app:title="DatBaSan"
             app:menu="@menu/menu_scenario_fragment" />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -85,8 +88,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:backgroundTint="#FFE082"
-            android:textColor="#333333"
+            android:backgroundTint="#FFC107"
+            android:textColor="#FFFFFF"
             android:text="@string/button_text_create_scenario"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -120,8 +123,8 @@
         app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
         android:layout_margin="@dimen/margin_horizontal_default"
         app:srcCompat="@drawable/ic_add"
-        app:backgroundTint="#FFE082"
-        app:tint="#333333"
+        app:backgroundTint="#FFC107"
+        app:tint="#FFFFFF"
         android:contentDescription="@string/content_desc_add_scenario"
         android:visibility="gone"
         tools:visibility="gone"/>
