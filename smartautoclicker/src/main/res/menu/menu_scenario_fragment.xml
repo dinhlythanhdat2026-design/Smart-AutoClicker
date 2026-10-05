@@ -4,26 +4,22 @@
 
     <item
         android:id="@+id/action_folder"
-        android:icon="@drawable/ic_folder"
-        android:title="Folder"
+        android:title="Thư mục"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_search"
-        android:icon="@drawable/ic_search"
-        android:title="Search"
+        android:title="Tìm kiếm"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_tutorial"
-        android:icon="@drawable/ic_school"
-        android:title="Tutorial"
+        android:title="Hướng dẫn"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_settings"
-        android:icon="@drawable/ic_settings"
-        android:title="Settings"
+        android:title="Cài đặt"
         app:showAsAction="ifRoom" />
 
 </menu>
