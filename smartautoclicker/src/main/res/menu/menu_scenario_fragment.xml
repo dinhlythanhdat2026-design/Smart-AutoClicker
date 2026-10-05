@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_folder"
-        android:title="Thư mục"
-        app:showAsAction="ifRoom" />
+        android:id="@+id/action_select_all"
+        android:title="Chọn tất cả"
+        app:showAsAction="never" />
 
     <item
-        android:id="@+id/action_search"
-        android:title="Tìm kiếm"
-        app:showAsAction="ifRoom" />
+        android:id="@+id/action_cancel"
+        android:title="Hủy"
+        app:showAsAction="never" />
 
     <item
-        android:id="@+id/action_tutorial"
+        android:id="@+id/action_import_export"
+        android:title="Nhập / Xuất"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_tutorials"
         android:title="Hướng dẫn"
-        app:showAsAction="ifRoom" />
-
-    <item
-        android:id="@+id/action_settings"
-        android:title="Cài đặt"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="never" />
 
 </menu>
