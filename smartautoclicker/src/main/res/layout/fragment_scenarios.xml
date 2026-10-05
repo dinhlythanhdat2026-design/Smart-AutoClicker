@@ -36,6 +36,8 @@
             android:id="@+id/topAppBar"
             style="@style/AppTheme.Widget.Toolbar"
             android:background="#FFC107"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:titleTextColor="#FFFFFF"
             app:itemIconTint="#FFFFFF"
             app:navigationIconTint="#FFFFFF"
