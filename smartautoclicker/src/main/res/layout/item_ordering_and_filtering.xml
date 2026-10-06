@@ -39,7 +39,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/item_scenario_filter_by_name"
-            app:icon="@drawable/ic_sort_name"/>
+            android:textColor="#000000"
+            app:icon="@drawable/ic_sort_name"
+            app:iconTint="#000000"
+            app:backgroundTint="@drawable/filter_button_bg"/>
 
         <Button
             style="?attr/materialButtonOutlinedStyle"
@@ -47,7 +50,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/item_scenario_filter_by_recent"
-            app:icon="@drawable/ic_sort_recent"/>
+            android:textColor="#000000"
+            app:icon="@drawable/ic_sort_recent"
+            app:iconTint="#000000"
+            app:backgroundTint="@drawable/filter_button_bg"/>
 
         <Button
             style="?attr/materialButtonOutlinedStyle"
@@ -55,7 +61,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/item_scenario_filter_by_most_used"
-            app:icon="@drawable/ic_most_used"/>
+            android:textColor="#000000"
+            app:icon="@drawable/ic_most_used"
+            app:iconTint="#000000"
+            app:backgroundTint="@drawable/filter_button_bg"/>
 
     </com.google.android.material.button.MaterialButtonToggleGroup>
 
@@ -76,7 +85,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/item_title_smart_scenario"
-            app:chipIcon="@drawable/ic_smart"/>
+            android:textColor="#000000"
+            app:chipIcon="@drawable/ic_smart"
+            app:chipIconTint="#000000"
+            app:chipBackgroundColor="@drawable/filter_button_bg"/>
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip_dumb"
@@ -84,7 +96,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/item_title_dumb_scenario"
-            app:chipIcon="@drawable/ic_dumb"/>
+            android:textColor="#000000"
+            app:chipIcon="@drawable/ic_dumb"
+            app:chipIconTint="#000000"
+            app:chipBackgroundColor="@drawable/filter_button_bg"/>
 
     </com.google.android.material.chip.ChipGroup>
 
