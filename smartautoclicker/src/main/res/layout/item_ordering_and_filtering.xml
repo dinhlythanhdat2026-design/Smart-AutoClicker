@@ -1,20 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-* Copyright (C) 2025 Kevin Buzeau
-*
-* This program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* (at your option) any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with this program.  If not, see <http://www.gnu.org/licenses/>.
--->
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -42,7 +26,7 @@
             android:textColor="#000000"
             app:icon="@drawable/ic_sort_name"
             app:iconTint="#000000"
-            app:backgroundTint="@drawable/filter_button_bg"/>
+            app:backgroundTint="@color/filter_button_bg"/>
 
         <Button
             style="?attr/materialButtonOutlinedStyle"
@@ -53,7 +37,7 @@
             android:textColor="#000000"
             app:icon="@drawable/ic_sort_recent"
             app:iconTint="#000000"
-            app:backgroundTint="@drawable/filter_button_bg"/>
+            app:backgroundTint="@color/filter_button_bg"/>
 
         <Button
             style="?attr/materialButtonOutlinedStyle"
@@ -64,7 +48,7 @@
             android:textColor="#000000"
             app:icon="@drawable/ic_most_used"
             app:iconTint="#000000"
-            app:backgroundTint="@drawable/filter_button_bg"/>
+            app:backgroundTint="@color/filter_button_bg"/>
 
     </com.google.android.material.button.MaterialButtonToggleGroup>
 
@@ -88,7 +72,7 @@
             android:textColor="#000000"
             app:chipIcon="@drawable/ic_smart"
             app:chipIconTint="#000000"
-            app:chipBackgroundColor="@drawable/filter_button_bg"/>
+            app:chipBackgroundColor="@color/filter_button_bg"/>
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip_dumb"
@@ -99,7 +83,7 @@
             android:textColor="#000000"
             app:chipIcon="@drawable/ic_dumb"
             app:chipIconTint="#000000"
-            app:chipBackgroundColor="@drawable/filter_button_bg"/>
+            app:chipBackgroundColor="@color/filter_button_bg"/>
 
     </com.google.android.material.chip.ChipGroup>
 
