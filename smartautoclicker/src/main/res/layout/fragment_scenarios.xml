@@ -116,21 +116,6 @@
         android:indeterminate="true"
         android:layout_gravity="center" />
 
-    <!-- Nút Con Vịt 🦆 để thu gọn/bật mở menu điều khiển -->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/button_duck_toggle"
-        style="@style/AppTheme.Widget.Fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|left|start"
-        android:layout_margin="@dimen/margin_horizontal_default"
-        app:srcCompat="@drawable/ic_dumb"
-        app:backgroundTint="#FFC107"
-        app:tint="#000000"
-        app:fabCustomSize="50dp"
-        app:maxImageSize="30dp"
-        android:contentDescription="Toggle Menu Duck Button" />
-
     <!-- Nút thêm kịch bản chính -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add"
@@ -149,3 +134,4 @@
         tools:visibility="gone"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
