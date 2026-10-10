@@ -64,7 +64,6 @@ abstract class OverlayMenu(
     private val recreateOverlayViewOnRotation: Boolean = false,
 ) : BaseOverlay(theme = theme, recreateOnRotation = false) {
 
-    /** The base layout parameters of the menu layout & overlay view. */
     private val baseLayoutParams: WindowManager.LayoutParams = WindowManager.LayoutParams(
         WindowManager.LayoutParams.WRAP_CONTENT,
         WindowManager.LayoutParams.WRAP_CONTENT,
@@ -78,7 +77,6 @@ abstract class OverlayMenu(
         disableMoveAnimations()
     }
 
-    /** The layout parameters of the menu layout. */
     private val menuLayoutParams: WindowManager.LayoutParams =
         WindowManager.LayoutParams().apply { copyFrom(baseLayoutParams) }
 
@@ -89,41 +87,24 @@ abstract class OverlayMenu(
     internal var destroyOnceHidden: Boolean = false
         private set
 
-    /** The Android window manager. Used to add/remove the overlay menu and view. */
     private lateinit var windowManager: WindowManager
-
-    /** The root view of the menu overlay. Retrieved from [onCreateMenu] implementation. */
     private lateinit var menuLayout: ViewGroup
-    /** The view displaying the background of the overlay. */
     private lateinit var menuBackground: ViewGroup
-    /** The view containing the buttons as direct children. */
     private lateinit var buttonsContainer: ViewGroup
-    /** Handles the window size computing when animating a resize of the overlay. */
     private lateinit var resizeController: OverlayMenuResizeController
-    /** Handles the touch events on the move button. */
     private lateinit var moveTouchEventHandler: OverlayMenuMoveTouchEventHandler
 
-    /** Handles the save/load of the position of the menus. */
     private val positionDataSource: OverlayMenuPositionDataSource by lazy {
         EntryPoints.get(context.applicationContext, OverlaysEntryPoint::class.java)
             .overlayMenuPositionDataSource()
     }
 
-    /** Value of the alpha for a disabled item view in the menu. */
     private var disabledItemAlpha: Float = 1f
-
-    /** The hide overlay button, if provided. */
     private var hideOverlayButton: ImageButton? = null
-    /** The move button, if provided. */
     private var moveButton: View? = null
-    /** The duck toggle button, if provided. */
     private var duckToggleButton: View? = null
 
-    /**
-     * The view to be displayed between the current activity and the overlay menu.
-     */
     protected var screenOverlayView: View? = null
-    /** The layout parameters of the overlay view. */
     private lateinit var overlayLayoutParams: WindowManager.LayoutParams
 
     private val onLockedPositionChangedListener: (Point?) -> Unit = ::onLockedPositionChanged
@@ -153,6 +134,28 @@ abstract class OverlayMenu(
         menuBackground = menuLayout.findViewById(R.id.menu_background)
         buttonsContainer = menuLayout.findViewById(R.id.menu_items)
         setupButtons(buttonsContainer)
+
+        // Kiểm tra an toàn nút vịt toggle từ id linh hoạt
+        val duckId = context.resources.getIdentifier("button_duck_toggle", "id", context.packageName)
+        if (duckId != 0) {
+            duckToggleButton = menuLayout.findViewById(duckId)
+            duckToggleButton?.setOnClickListener {
+                if (resizeController.isAnimating) return@setOnClickListener
+                var hasVisibleItem = false
+                buttonsContainer.forEach { child ->
+                    if (child.id != duckId && child.isVisible) {
+                        hasVisibleItem = true
+                    }
+                }
+                val targetVisible = !hasVisibleItem
+                buttonsContainer.forEach { child ->
+                    if (child.id != duckId) {
+                        child.isVisible = targetVisible
+                    }
+                }
+                if (canResizeWindow()) forceWindowResize()
+            }
+        }
 
         moveTouchEventHandler = OverlayMenuMoveTouchEventHandler(::updateMenuPosition)
 
@@ -197,26 +200,6 @@ abstract class OverlayMenu(
                     setOverlayViewVisibility(true)
                     view.setOnClickListener { onToggleOverlayVisibilityClicked() }
                 }
-                R.id.button_duck_toggle -> {
-                    duckToggleButton = view
-                    view.setOnClickListener { v ->
-                        if (resizeController.isAnimating) return@setOnClickListener
-                        // Toggle ẩn/hiện tất cả các nút khác, giữ nguyên nút con vịt 🦆
-                        var isAnyChildVisible = false
-                        buttonsContainer.forEach { child ->
-                            if (child.id != R.id.button_duck_toggle && child.isVisible) {
-                                isAnyChildVisible = true
-                            }
-                        }
-                        val makeVisible = !isAnyChildVisible
-                        buttonsContainer.forEach { child ->
-                            if (child.id != R.id.button_duck_toggle) {
-                                child.isVisible = makeVisible
-                            }
-                        }
-                        if (canResizeWindow()) forceWindowResize()
-                    }
-                }
                 else -> view.setDebouncedOnClickListener { v ->
                     if (resizeController.isAnimating) return@setDebouncedOnClickListener
                     onMenuItemClicked(v.id)
@@ -232,15 +215,11 @@ abstract class OverlayMenu(
         super.start()
         loadMenuPosition(displayConfigManager.displayConfig.orientation)
 
-        Log.d(TAG, "Start show overlay ${hashCode()} animation...")
-
         val animatedOverlayView = if (animateOverlayView()) screenOverlayView else null
         menuLayout.visibility = View.VISIBLE
         menuBackground.visibility = View.VISIBLE
         animatedOverlayView?.visibility = View.VISIBLE
         animations.startShowAnimation(menuBackground, animatedOverlayView) {
-            Log.d(TAG, "Show overlay ${hashCode()} animation ended")
-
             if (resumeOnceShown) {
                 resumeOnceShown = false
                 resume()
@@ -500,5 +479,4 @@ abstract class OverlayMenu(
     }
 }
 
-/** Tag for logs */
 private const val TAG = "OverlayMenu"
