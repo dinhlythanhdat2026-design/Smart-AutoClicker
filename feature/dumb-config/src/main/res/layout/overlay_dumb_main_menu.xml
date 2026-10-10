@@ -73,6 +73,12 @@
                     android:src="@drawable/ic_move"
                     android:contentDescription="@string/content_desc_move_menu" />
 
+                <ImageButton
+                    android:id="@+id/button_duck_toggle"
+                    style="@style/AppTheme.Overlay.FloatingMenu.Buttons"
+                    android:src="@drawable/ic_dumb"
+                    android:contentDescription="Toggle Duck Menu" />
+
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
